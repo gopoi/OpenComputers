@@ -4,9 +4,9 @@ local component = require("component")
 local unserialize = require("serialization").unserialize
 local config = {}
 
-{
+do --lazy file ref close
    config = unserialize(io.open('/etc/ae2-controller.cfg'))
-}
+end
 
 if component.isAvailable('me_interface') then
    meIface = component.me_interface
